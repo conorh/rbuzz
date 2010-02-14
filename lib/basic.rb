@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'rbuzz'
 
 feed_url = Rbuzz::Feed.discover(ARGV[0])

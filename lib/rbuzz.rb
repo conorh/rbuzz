@@ -1,0 +1,5 @@
+require 'atom'
+require 'open-uri'
+require 'rbuzz/feed'
+require 'rbuzz/feed_entry'
+require 'rbuzz/feed_reply'

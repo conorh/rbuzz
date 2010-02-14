@@ -1,4 +1,4 @@
-module Buzzr
+module Rbuzz
   class FeedError < Exception; end;
 
   class Feed

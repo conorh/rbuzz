@@ -1,24 +1,27 @@
-Buzzr
-=====
+Ruby Buzz - RBuzz
+=================
 
-A simple wrapper to help retrieve and parse the Google Buzz Atom Feed.
+A simple Ruby wrapper to help retrieve and parse the Google Buzz Atom Feed.
 
 Coming soon - subscribing to updates, posting to feed
+
+Note: This library was renamed from Buzzr to Ruby Buzz. Buzzr.com sent me a friendly trademark 
+infringement notice and threatened a lawsuit if I didn't rename the library immediately.
 
 Install
 -------
 
-gem install buzzr
+gem install rbuzz
 
-Buzzr is hosted on the Gemcutter repository. It depends on the RAtom library - http://github.com/seangeo/ratom
+Ruby Buzz is hosted on the Gemcutter repository. It depends on the RAtom library - http://github.com/seangeo/ratom
 
 Example
 -------
 
-    require 'buzzr'
+    require 'rbuzz'
   
-    feed_url = Buzzr::Feed.discover("conorhunt")
-    feed = Buzzr::Feed.retrieve(feed_url)
+    feed_url = Rbuzz::Feed.discover("conorhunt")
+    feed = Rbuzz::Feed.retrieve(feed_url)
   
     feed.entries.each do |entry|
       puts "Title: #{entry.title}"
@@ -58,11 +61,6 @@ Example
       puts "------"
       puts
     end
-
-Notes
------
-
-Props to Psi <http://github.com/psi> for the awesome name. Way better than Rbuzz :)
 
 COPYRIGHT
 ---------

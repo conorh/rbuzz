@@ -1,4 +1,4 @@
-module Buzzr
+module Rbuzz
   class FeedReply
     attr :atom_entry
     
