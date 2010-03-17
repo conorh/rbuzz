@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'rbuzz'
-  s.version = '0.3'
+  s.version = '0.3.1'
   s.date = '2010-02-10'
   s.authors = ['Conor Hunt']
   s.email = 'conor.hunt@gmail.com'
@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.files = ['README.md', 'LICENSE', 'Changelog', 'examples'] + Dir['lib/**/*'].to_a
 
   s.add_dependency('ratom', '>= 0.6.3')
-  s.add_dependency('llibxml-ruby')
+  s.add_dependency('libxml-ruby')
 end
