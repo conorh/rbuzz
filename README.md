@@ -21,6 +21,7 @@ Example
     require 'rbuzz'
   
     feed_url = Rbuzz::Feed.discover("conorhunt")
+    # or Rbuzz::Feed.discover_by_email("bradfitz@gmail.com")
     feed = Rbuzz::Feed.retrieve(feed_url)
   
     feed.entries.each do |entry|

@@ -14,14 +14,34 @@ module Rbuzz
       feed.fetch
       feed
     end
+    
+    # Extract the feed url from the users's google profile name
+    def self.discover(profile_name)
+      self.discover_by_url "http://www.google.com/profiles/#{profile_name}"
+    end
+    
+    # Extract the feed url from the users's e-mail
+    def self.discover_by_email(email)
+      resource = Net::HTTP.get(URI.parse("http://www.google.com/s2/webfinger/?q=acct:#{email}"))
+      begin
+        doc = XML::Document.string(resource)
+      rescue XML::Error => e
+        raise FeedError, "Could not find google profile for #{email}"
+      end
+      if profile_url = doc.find('//XRD:Alias', 'XRD:http://docs.oasis-open.org/ns/xri/xrd-1.0').first
+        self.discover_by_url profile_url.content
+      else
+        raise FeedError, "Could not find google profile page for #{email}"
+      end
+    end
 
     # Extract the feed url from the users's google profile page
-    def self.discover(profile_name)
+    def self.discover_by_url(profile_url)
       begin
-        page = open("http://www.google.com/profiles/#{profile_name}").read
+        page = open(profile_url).read
       rescue OpenURI::HTTPError => e
         if e.io.status[0] == '404'
-          raise FeedError, "Could not find profile for #{profile_name} at - http://www.google.com/profiles/#{profile_name}"
+          raise FeedError, "Could not find profile at #{profile_url}"
         end
       end
       
