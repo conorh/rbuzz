@@ -6,14 +6,12 @@ A simple Ruby wrapper to help retrieve and parse the Google Buzz Atom Feed.
 Coming soon - subscribing to updates, posting to feed
 
 Note: This library was renamed from Buzzr to Ruby Buzz. Buzzr.com sent me a friendly trademark 
-infringement notice and threatened a lawsuit if I didn't rename the library immediately.
+infringement notice and threatened a lawsuit.
 
 Install
 -------
 
 gem install rbuzz
-
-Ruby Buzz is hosted on the Gemcutter repository. It depends on the RAtom library - http://github.com/seangeo/ratom
 
 Example
 -------
@@ -21,7 +19,8 @@ Example
     require 'rbuzz'
   
     feed_url = Rbuzz::Feed.discover("conorhunt")
-    # or Rbuzz::Feed.discover_by_email("bradfitz@gmail.com")
+    # Or, using [webfinger](https://groups.google.com/group/webfinger/browse_thread/thread/fb56537a0ed36964/c51e559c8f8d5455)
+    # Rbuzz::Feed.discover_by_email("bradfitz@gmail.com")
     feed = Rbuzz::Feed.retrieve(feed_url)
   
     feed.entries.each do |entry|
@@ -62,6 +61,11 @@ Example
       puts "------"
       puts
     end
+
+CONTRIBUTORS
+------------
+
+Alexandr Zykov (github: alexandrz)
 
 COPYRIGHT
 ---------
