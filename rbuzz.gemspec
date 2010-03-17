@@ -11,5 +11,5 @@ Gem::Specification.new do |s|
   s.files = ['README.md', 'LICENSE', 'Changelog', 'examples'] + Dir['lib/**/*'].to_a
 
   s.add_dependency('ratom', '>= 0.6.3')
-  s.add_dependency('libxml')
+  s.add_dependency('llibxml-ruby')
 end
