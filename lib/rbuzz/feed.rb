@@ -20,7 +20,7 @@ module Rbuzz
       self.discover_by_url "http://www.google.com/profiles/#{profile_name}"
     end
     
-    # Extract the feed url from the users's e-mail
+    # Extract the feed url from the users's e-mail using the webfinger protocol
     def self.discover_by_email(email)
       resource = Net::HTTP.get(URI.parse("http://www.google.com/s2/webfinger/?q=acct:#{email}"))
       begin
