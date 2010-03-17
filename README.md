@@ -19,7 +19,7 @@ Example
     require 'rbuzz'
   
     feed_url = Rbuzz::Feed.discover("conorhunt")
-    # Or, using [webfinger](https://groups.google.com/group/webfinger/browse_thread/thread/fb56537a0ed36964/c51e559c8f8d5455)
+    # Or, using webfinger (see https://groups.google.com/group/webfinger/browse_thread/thread/fb56537a0ed36964/c51e559c8f8d5455)
     # Rbuzz::Feed.discover_by_email("bradfitz@gmail.com")
     feed = Rbuzz::Feed.retrieve(feed_url)
   
