@@ -34,19 +34,23 @@ module Rbuzz
     end
     
     def urls
-      @links ||= @atom_entry.links.find_all {|l| l.type =~ %r{text/html}i }.collect {|l| l.href}
+      @links ||= @atom_entry.links.find_all {|l| l.type =~ %r{text/html}i }.collect {|l| l.href}.uniq
     end
 
     def images
-      @images ||= @atom_entry.links.find_all {|l| l.type =~ /image/i }.collect {|l| l.href}
+      @images ||= @atom_entry.links.find_all {|l| l.type =~ /image/i }.collect {|l| l.href}.uniq
     end
 
     def videos
-      @videos ||= @atom_entry.links.find_all {|l| l.type =~ %r{application/x-shockwave-flash}i }.collect {|l| l.href}
+      @videos ||= @atom_entry.links.find_all {|l| l.type =~ %r{application/x-shockwave-flash}i }.collect {|l| l.href}.uniq
     end
 
     def author
       @atom_entry.authors[0] if @atom_entry.respond_to?(:authors)
+    end
+    
+    def id
+      @atom_entry.id
     end
   end
 end
