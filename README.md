@@ -11,7 +11,7 @@ infringement notice and threatened a lawsuit.
 Install
 -------
 
-gem install rbuzz
+    gem install rbuzz
 
 Example
 -------
